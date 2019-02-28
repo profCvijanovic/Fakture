@@ -1,0 +1,8 @@
+@CHARSET "ISO-8859-1";
+
+h1{
+	font-family: "Comic Sans MS";
+	font-weight: bold;
+	color: red;
+	font-size: 120%;
+}
