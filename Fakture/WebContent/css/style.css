@@ -5,4 +5,29 @@ h1{
 	font-weight: bold;
 	color: red;
 	font-size: 120%;
+	margin-left: 45%;
+}
+
+#registrationFormDiv{
+	width: 100%;
+	font-family: "Comic Sans MS";
+	border: 1px solid #000099;
+	border-radius: 2%;
+	background-color: #cce6ff;
+	color: red;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 2%;
+	padding-top: 2%;
+	margin: 5%;
+}
+
+.sirinaPoljaForme{
+	width: 100%;
+}
+
+.sivaSlova{
+	color: #595959;
+	font-size: 90%;
+	font-weight: bold;
 }

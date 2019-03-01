@@ -13,6 +13,8 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int userId;
+	private String userName;
+	private String password;
 	private String imeUsera;
 	private String prezimeUsera;
 	private String imeFirme;
@@ -71,7 +73,17 @@ public class User {
 	public void setListaZiroRacuna(List<ZiroRacun> listaZiroRacuna) {
 		this.listaZiroRacuna = listaZiroRacuna;
 	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
-	
-
 }

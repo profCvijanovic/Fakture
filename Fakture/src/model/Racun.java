@@ -16,6 +16,7 @@ public class Racun {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int racunId;
+	private String tipRacuna;
 	private int redniBrojRacuna;
 	@OneToOne
 	private Klijent klijent;
@@ -110,9 +111,11 @@ public class Racun {
 	public void setKonacnaCenaSaPdv(double konacnaCenaSaPdv) {
 		this.konacnaCenaSaPdv = konacnaCenaSaPdv;
 	}
-	
-	
-	
-	
-	
+	public String getTipRacuna() {
+		return tipRacuna;
+	}
+	public void setTipRacuna(String tipRacuna) {
+		this.tipRacuna = tipRacuna;
+	}
+		
 }

@@ -18,8 +18,62 @@
 <div class="container-fluid">
 	<h1>Registracija</h1>
 	<a href = "../index.html">back</a>
-	
-	
+	  <div class="row">
+	   	<div class="col-3">
+ 		
+ 		</div>
+	    <div class="col-6">
+	      <div id = "registrationFormDiv" >
+			<form method="post" action="#" onsubmit="return registrationValidation();">
+			  <div class="form-group">
+			    <label class = "sivaSlova" for="inputEmail">Email address</label>
+			    <input type="email" class="form-control sirinaPoljaForme" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" name = "userName">
+			  </div>
+			  <div id = "emailErr"></div>
+			  <div class="form-group">
+			    <label class = "sivaSlova" for="inputPassword">Password</label>
+			    <input type="password" class="form-control sirinaPoljaForme" id="inputPassword" placeholder="Password" name = "password">
+			  </div>
+			  <div id = "passwordErr"></div>
+			  <div class="form-group">
+			    <label class = "sivaSlova" for="inputPassword2">Ponovite Password</label>
+			    <input type="password" class="form-control sirinaPoljaForme" id="inputPassword2" placeholder="Ponovljeni Password" name = "repeatedPassword">
+			  </div>
+			  <div id = "repeatedPasswordErr"></div>
+			  <div class="form-group">
+			    <label class = "sivaSlova" for="imeUsera">Ime</label>
+			    <input type="text" class="form-control sirinaPoljaForme" id="imeUsera" placeholder="Ime" name = "firstName">
+			  </div>
+			  <div id = "nameErr"></div>
+			  <div class="form-group">
+			    <label class = "sivaSlova" for="prezimeUsera">Prezime</label>
+			    <input type="text" class="form-control sirinaPoljaForme" id="prezimeUsera" placeholder="Prezime" name = "lastName">
+			  </div>
+			  <div id = "lastNameErr"></div>
+			  <div class="form-group">
+			    <label class = "sivaSlova" for="imeFirme">Ime firme</label>
+			    <input type="text" class="form-control sirinaPoljaForme" id="imeFirme" placeholder="Firma" name = "imeFirme">
+			  </div>
+			  <div id = "firmaErr"></div>
+			  <div class="form-group">
+			    <label class = "sivaSlova" for="PIB">PIB</label>
+			    <input type="text" class="form-control sirinaPoljaForme" id="PIB" placeholder="PIB" name = "pib">
+			  </div>
+			  <div id = "pibErr"></div>
+			  <div class="form-group">
+			    <label class = "sivaSlova" for="maticniBroj">Maticni broj firme</label>
+			    <input type="text" class="form-control sirinaPoljaForme" id="maticniBroj" placeholder="Maticni broj" name = "maticniBroj">
+			  </div>
+			  <div id = "maticniErr"></div>
+			  <div class="form-group form-check">
+			  <button type="submit" class="btn btn-primary">Registruj me</button>
+			</form>
+			</div></div><!-- Ovde je kraj forma diva -->
+ 		 </div>
+ 		 <div class="col-3">
+ 	
+ 		 </div>
+	</div>	
 	
 	
 
@@ -29,6 +83,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<!-- Moj JavaScript -->   
+	<script type="text/javascript" src = "../js/mojJs.js"></script>
 </body>
 </body>
 </html>
