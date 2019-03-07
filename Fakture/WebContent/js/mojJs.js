@@ -1,8 +1,8 @@
 /**
  * 
  */
-function registrationValidation(){
-	//elementi iz inputa
+function registrationValidation() {
+	// elementi iz inputa
 	var email = document.getElementById('inputEmail');
 	var password = document.getElementById('inputPassword');
 	var repeatedPassword = document.getElementById('inputPassword2');
@@ -11,8 +11,12 @@ function registrationValidation(){
 	var firma = document.getElementById('imeFirme');
 	var pib = document.getElementById('PIB');
 	var maticniBroj = document.getElementById('maticniBroj');
-	
-	//error elementi
+	var drzava = document.getElementById('drzava');
+	var grad = document.getElementById('grad');
+	var ulica = document.getElementById('ulica');
+	var postanskiBroj = document.getElementById('postanskiBroj');
+
+	// error elementi
 	var emailErr = document.getElementById('emailErr');
 	var passwordErr = document.getElementById('passwordErr');
 	var repeatedPasswordErr = document.getElementById('repeatedPasswordErr');
@@ -21,120 +25,184 @@ function registrationValidation(){
 	var firmaErr = document.getElementById('firmaErr');
 	var pibErr = document.getElementById('pibErr');
 	var maticniErr = document.getElementById('maticniErr');
-	
-	//dodaj event listenere
-	email.addEventListener("blur",emailVerify,true);
-	password.addEventListener("blur",passwordVerify,true);
-	repeatedPassword.addEventListener("blur",repeatedPasswordVerify,true);
-	name.addEventListener("blur",nameVerify,true);
-	lastName.addEventListener("blur",lastNameVerify,true);
-	firma.addEventListener("blur",firmaVerify,true);
-	pib.addEventListener("blur",pibVerify,true);
-	maticniBroj.addEventListener("blur",maticniBrojVerify,true);
-
-	//uslovi za prazno polje
-	if(email.value == ""){
+	var drzavaErr = document.getElementById('drzavaErr');
+	var gradErr = document.getElementById('gradErr');
+	var ulicaErr = document.getElementById('ulicaErr');
+	var postanskiBrojErr = document.getElementById('postanskiBrojErr');
+	// uslovi za prazno polje
+	if (email.value == "") {
 		email.style.border = "2px solid #ff0000";
-		emailErr.textContent = "Morate uneti email!"
+		emailErr.textContent = "Morate uneti email";
 		email.focus();
 		return false;
+	} else {
+		email.style.border = "2px solid blue";
+		emailErr.textContent = "";
 	}
-	if(password.value == ""){
+	if (password.value == "") {
 		password.style.border = "2px solid #ff0000";
-		passwordErr.textContent = "Morate uneti password!"
-			password.focus();
+		passwordErr.textContent = "Morate uneti password";
+		password.focus();
 		return false;
+	} else {
+		password.style.border = "2px solid blue";
+		passwordErr.textContent = "";
 	}
-	if(repeatedPassword.value == ""){
+
+	if (repeatedPassword.value == "") {
 		repeatedPassword.style.border = "2px solid #ff0000";
-		repeatedPasswordErr.textContent = "Morate ponovo uneti password!"
+		repeatedPasswordErr.textContent = "Morate ponovo uneti password";
 		repeatedPassword.focus();
 		return false;
+	} else {
+		repeatedPassword.style.border = "2px solid blue";
+		repeatedPasswordErr.textContent = "";
 	}
-	if(name.value == ""){
+		
+		if (name.value == "") {
 		name.style.border = "2px solid #ff0000";
-		nameErr.textContent = "Morate uneti ime!"
-		//name.focus();
+		nameErr.textContent = "Morate uneti ime";
+		name.focus();
 		return false;
-	}
-	if(lastName.value == ""){
+	} else {
+		name.style.border = "2px solid blue";
+		nameErr.textContent = "";
+	}	
+		if (lastName.value == "") {	
 		lastName.style.border = "2px solid #ff0000";
-		lastNameErr.textContent = "Morate uneti prezime!"
+		lastNameErr.textContent = "Morate uneti prezime";
 		lastName.focus();
 		return false;
+	} else {
+		lastName.style.border = "2px solid blue";
+		lastNameErr.textContent = "";
 	}
-	if(firma.value == ""){
+		if (firma.value == "") {
 		firma.style.border = "2px solid #ff0000";
-		firmaErr.textContent = "Morate uneti ime firme!"
+		firmaErr.textContent = "Morate uneti ime firme";
 		firma.focus();
 		return false;
-	}
-	if(pib.value == ""){
+	} else{
+		firma.style.border = "2px solid blue";
+		firmaErr.textContent = "";
+	} 
+		if (pib.value == "") {
 		pib.style.border = "2px solid #ff0000";
-		pibErr.textContent = "Morate uneti pib!"
+		pibErr.textContent = "Morate uneti pib"
 		pib.focus();
 		return false;
+	} else{
+		pib.style.border = "2px solid blue";
+		pibErr.textContent = ""
 	}
-	if(maticniBroj.value == ""){
+		if (maticniBroj.value == "") {
 		maticniBroj.style.border = "2px solid #ff0000";
-		maticniErr.textContent = "Morate uneti maticni broj firme!"
+		maticniErr.textContent = "Morate uneti maticni broj firme";
 		maticniBroj.focus();
 		return false;
+	} else {
+		maticniBroj.style.border = "2px solid blue";
+		maticniErr.textContent = "";
 	}
-	
-	//provera da li su isti passwordi
-	if(password.value != repeatedPassword.value){
+		if (drzava.value == "") {
+			drzava.style.border = "2px solid #ff0000";
+			drzavaErr.textContent = "Morate uneti ime drzave";
+			drzava.focus();
+			return false;
+		} else {
+			drzava.style.border = "2px solid blue";
+			drzavaErr.textContent = "";
+		}
+		if (grad.value == "") {
+			grad.style.border = "2px solid #ff0000";
+			gradErr.textContent = "Morate uneti ime grada";
+			grad.focus();
+			return false;
+		} else {
+			grad.style.border = "2px solid blue";
+			gradErr.textContent = "";
+		}
+		if (ulica.value == "") {
+			ulica.style.border = "2px solid #ff0000";
+			ulicaErr.textContent = "Morate uneti ime ulice";
+			ulica.focus();
+			return false;
+		} else {
+			ulica.style.border = "2px solid blue";
+			ulicaErr.textContent = "";
+		}
+		
+		if (postanskiBroj.value == "") {
+			postanskiBroj.style.border = "2px solid #ff0000";
+			postanskiBrojErr.textContent = "Morate uneti postanski broj";
+			postanskiBroj.focus();
+			return false;
+		} else {
+			postanskiBroj.style.border = "2px solid blue";
+			postanskiBrojErr.textContent = "";
+		}
+		
+		// uslov za password
+		if (password.value != repeatedPassword.value) {	
 		password.style.border = "3px solid  #cc0099";
 		repeatedPassword.style.border = "3px solid  #cc0099";
-		passwordErr.innerHTML = "Nisu isti password-i!"
+		passwordErr.innerHTML = "Nisu isti password-i";
 		return false;
-	}
+	} 
 }
+		
+function loginValidation() {
+	
+	// elementi iz inputa
+	var email = document.getElementById('inputEmail');
+	var password = document.getElementById('inputPassword');
+	var check = document.getElementById('check');
 
-function emailVerify(){
-	email.style.border = "1px solid #0000ff";
-	emailErr.innerHTML = ""
-	return true;	
-}
+	// error elementi
+	var emailErr = document.getElementById('emailErr');
+	var passwordErr = document.getElementById('passwordErr');
+	var checkErr = document.getElementById('checkErr');
+	
+	// uslovi za prazno polje
+		if (email.value == "") {
+			email.style.border = "2px solid #ff0000";
+			emailErr.textContent = "Morate uneti email";
+			email.focus();
+			return false;
+		} else {
+			email.style.border = "2px solid blue";
+			emailErr.textContent = "";
+		}
+		if (password.value == "") {
+			password.style.border = "2px solid #ff0000";
+			passwordErr.textContent = "Morate uneti password";
+			password.focus();
+			return false;
+		} else {
+			password.style.border = "2px solid blue";
+			passwordErr.textContent = "";
+		}
+		if (check.checked == false) {
+			checkErr.textContent = "obavezan check in";
+			return false;
+		} else {
+			checkErr.textContent = "";
+		}		
+} 	
 
-function passwordVerify(){
-	password.style.border = "1px solid #0000ff";
-	passwordErr.innerHTML = ""
-	return true;	
-}
 
-function repeatedPasswordVerify(){
-	repeatedPassword.style.border = "1px solid #0000ff";
-	repeatedPasswordErr.innerHTML = ""
-	return true;	
+function prikaziTabelu(){
+	
+	var tabela = document.getElementById('tabelaUsera');
+	
+	  if (tabela.style.display == "none") {
+		  tabela.style.display = "block";
+		  } else {
+			  tabela.style.display = "none";
+		  }
 }
+		
+		
 
-function nameVerify(){
-	name.style.border = "1px solid #0000ff";
-	nameErr.innerHTML = ""
-	return true;	
-}
 
-function lastNameVerify(){
-	lastName.style.border = "1px solid #0000ff";
-	lastNameErr.innerHTML = ""
-	return true;	
-}
 
-function firmaVerify(){
-	firma.style.border = "1px solid #0000ff";
-	firmaErr.innerHTML = ""
-	return true;	
-}
-
-function pibVerify(){
-	pib.style.border = "1px solid #0000ff";
-	pibErr.innerHTML = ""
-	return true;	
-}
-
-function maticniBrojVerify(){
-	maticniBroj.style.border = "1px solid #0000ff";
-	maticniErr.innerHTML = ""
-	return true;	
-}
