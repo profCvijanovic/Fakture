@@ -26,13 +26,15 @@ public class RegistracioniServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
-		String imeFirme = request.getParameter("imeFirme");
+		String kontaktTelefon = request.getParameter("kontaktTelefon");
+
+		/*String imeFirme = request.getParameter("imeFirme");
 		String pib = request.getParameter("pib");
 		String maticniBroj = request.getParameter("maticniBroj");
 		String drzava = request.getParameter("drzava");
 		String grad = request.getParameter("grad");
 		String ulica = request.getParameter("ulica");
-		String postanskiBroj = request.getParameter("postanskiBroj");
+		String postanskiBroj = request.getParameter("postanskiBroj");*/
 		
 		RegistracijaLoginMetode rlm = new RegistracijaLoginMetode();
 		Validacija validacija = new Validacija();
@@ -43,8 +45,12 @@ public class RegistracioniServlet extends HttpServlet {
 			if(proveraUsera) {
 				response.sendRedirect("html/registracijaPonovo.html");
 			}
-		boolean b = rlm.upisiUseraUBazu(userName, sifraPassword, firstName, lastName, imeFirme, pib, maticniBroj, drzava, grad, ulica, postanskiBroj);
+		
+		boolean b = rlm.upisiUseraUBazu(userName, sifraPassword, firstName, lastName,kontaktTelefon);
 			if(b) {
+				if(rlm.daLiJeAdmin(userName, sifraPassword)) {
+					rlm.podesiAktivacijuAdmina(rlm.vratiUsera(userName));
+				}
 				response.sendRedirect("index.html");
 			}else {
 				response.sendRedirect("html/registracijaPonovoNeuspesanSaveUBazu.html");

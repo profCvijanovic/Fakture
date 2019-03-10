@@ -20,7 +20,7 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<% User user = (User)request.getAttribute("user");%>
+		<% User user = (User)session.getAttribute("user");%>
 		<h1>Dobro dosli user <%=user.getUserName()%> </h1>
 		
 		

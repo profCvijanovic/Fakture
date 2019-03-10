@@ -5,6 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 @Entity
 public class Klijent {
 	@Id
@@ -15,6 +19,9 @@ public class Klijent {
 	private String maticniBrojFirme;
 	@Embedded
 	private Adresa adresa;
+	@ManyToOne
+	@NotFound(action = NotFoundAction.IGNORE)
+	private Firma firma;
 	
 	public int getKlijentId() {
 		return klijentId;
@@ -45,6 +52,12 @@ public class Klijent {
 	}
 	public void setAdresa(Adresa adresa) {
 		this.adresa = adresa;
+	}
+	public Firma getFirma() {
+		return firma;
+	}
+	public void setFirma(Firma firma) {
+		this.firma = firma;
 	}
 	
 	

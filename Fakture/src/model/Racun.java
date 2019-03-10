@@ -16,22 +16,25 @@ public class Racun {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int racunId;
-	private String tipRacuna;
-	private int redniBrojRacuna;
+	@OneToOne
+	private User user;
 	@OneToOne
 	private Klijent klijent;
 	@OneToOne
-	private User user;
-	private Date datumIzdavanja;
-	private Date datumPrometa;
-	private String valuta;
+	private Firma firma;
 	@OneToMany
 	private List<Lager> listaProizvoda = new ArrayList<Lager>();
+	
+	private String tipRacuna;
+	private int redniBrojRacuna;
 	private double avansBezPdv;
 	private double avansSaPdv;
 	private double rabat;
 	private double konacnaCenaBezPdv;
 	private double konacnaCenaSaPdv;
+	private Date datumIzdavanja;
+	private Date datumPrometa;
+	private String valuta;
 	
 	public int getRacunId() {
 		return racunId;
@@ -50,12 +53,6 @@ public class Racun {
 	}
 	public void setKlijent(Klijent klijent) {
 		this.klijent = klijent;
-	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
 	}
 	public Date getDatumIzdavanja() {
 		return datumIzdavanja;
@@ -117,5 +114,17 @@ public class Racun {
 	public void setTipRacuna(String tipRacuna) {
 		this.tipRacuna = tipRacuna;
 	}
-		
+	public Firma getFirma() {
+		return firma;
+	}
+	public void setFirma(Firma firma) {
+		this.firma = firma;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 }

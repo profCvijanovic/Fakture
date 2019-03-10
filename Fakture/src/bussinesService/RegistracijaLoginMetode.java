@@ -8,31 +8,22 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import model.Adresa;
+import model.Firma;
 import model.User;
 
 public class RegistracijaLoginMetode {
 	
 	SessionFactory sf = new Configuration().configure().buildSessionFactory();
+	Validacija validacija = new Validacija();
 	
-	public boolean upisiUseraUBazu(String userName, String password,String imeUsera, String prezimeUsera, String imeFirme, String PIB, String maticniBrojFirme,String drzava,String grad, String ulica, String postanskiBroj ) {
-		
-		Adresa adresa = new Adresa();
-			adresa.setDrzava(drzava);
-			adresa.setGrad(grad);
-			adresa.setUlica(ulica);
-			adresa.setPostanskiBroj(postanskiBroj);
+	public boolean upisiUseraUBazu(String userName, String password,String imeUsera, String prezimeUsera, String kontaktTelefon) {
 			
 		User user = new User();
 			user.setUserName(userName);
 			user.setPassword(password);
-			user.setImeUsera(prezimeUsera);
+			user.setImeUsera(imeUsera);
 			user.setPrezimeUsera(prezimeUsera);
-			user.setImeFirme(imeFirme);
-			user.setPIB(PIB);
-			user.setMaticniBrojFirme(maticniBrojFirme);
-			user.setAdresa(adresa);
-			
+			user.setKontaktTelefon(kontaktTelefon);
 		Session session = sf.openSession();
 		try {
 			session.beginTransaction();
@@ -114,8 +105,46 @@ public class RegistracijaLoginMetode {
 	}
 }
 	
+	public boolean daLiJeAdmin(String userName, String password) {
+		
+		String adminUserName = "prof.cvijanovic@gmail.com";
+		String adminPassword = "nenadcv17";
+		
+		Session session = sf.openSession();
+		try {
+			session.beginTransaction();
+				Query query = session.createQuery("FROM User WHERE userName = :userName");
+				query.setParameter("userName", userName);
+				List <User> users = (List<User>)query.getResultList();
+				if(users.get(0).getUserName().equals(adminUserName) && users.get(0).getPassword().equals(validacija.konvertujPasswordUSifru(adminPassword))) {
+					session.getTransaction().commit();
+					return true;
+				}else {
+					session.getTransaction().commit();
+					return false;
+				}	
+		}catch (Exception e) {
+			session.getTransaction().rollback();
+			return false;
+		}finally {
+			session.close();
+		}
+	}	
 	
-	
-	
+	public void podesiAktivacijuAdmina(User user) {
+		
+		Session session = sf.openSession();
+		try {
+			session.beginTransaction();	
+				user.setAktivanUser(true);
+				session.update(user);
+			session.getTransaction().commit();
+			
+		}catch (Exception e) {
+			session.getTransaction().rollback();
+		}finally {
+			session.close();
+		}
+	}	
 	
 }

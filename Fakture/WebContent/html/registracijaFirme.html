@@ -12,11 +12,11 @@
 		  type = "text/css"
 		  href = "../css/style.css"  
 	/>
-<title>registracija</title>
+<title>registracija firme</title>
 </head>
 <body>
 <div class="container-fluid">
-	<h1>Registracija</h1>
+	<h1>Registracija firme</h1>
 	<a href = "../index.html">back</a>
 	  <div class="row">
 	   	<div class="col-3">
@@ -24,39 +24,45 @@
  		</div>
 	    <div class="col-6">
 	      <div id = "registrationFormDiv" >
-			<form method="post" action="../RegistracioniServlet" onsubmit="return userRegistrationValidation();">
+			<form method="post" action="#" onsubmit="return firmaRegistrationValidation();">
+
 			  <div class="form-group">
-			    <label class = "sivaSlova" for="inputEmail">Email address</label>
-			    <input type="email" class="form-control sirinaPoljaForme" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" name = "userName">
+			    <label class = "sivaSlova" for="imeFirme">Ime firme</label>
+			    <input type="text" class="form-control sirinaPoljaForme" id="imeFirme" placeholder="Firma" name = "imeFirme">
 			  </div>
-			  <div id = "emailErr"></div>
+			  <div id = "firmaErr"></div>
 			  <div class="form-group">
-			    <label class = "sivaSlova" for="inputPassword">Password</label>
-			    <input type="password" class="form-control sirinaPoljaForme" id="inputPassword" placeholder="Password" name = "password">
+			    <label class = "sivaSlova" for="PIB">PIB</label>
+			    <input type="text" class="form-control sirinaPoljaForme" id="PIB" placeholder="PIB" name = "pib">
 			  </div>
-			  <div id = "passwordErr"></div>
+			  <div id = "pibErr"></div>
 			  <div class="form-group">
-			    <label class = "sivaSlova" for="inputPassword2">Ponovite Password</label>
-			    <input type="password" class="form-control sirinaPoljaForme" id="inputPassword2" placeholder="Ponovljeni Password" name = "repeatedPassword">
+			    <label class = "sivaSlova" for="maticniBroj">Maticni broj firme</label>
+			    <input type="text" class="form-control sirinaPoljaForme" id="maticniBroj" placeholder="Maticni broj" name = "maticniBroj">
 			  </div>
-			  <div id = "repeatedPasswordErr"></div>
+			  <div id = "maticniErr"></div>
 			  <div class="form-group">
-			    <label class = "sivaSlova" for="imeUsera">Ime</label>
-			    <input type="text" class="form-control sirinaPoljaForme" id="imeUsera" placeholder="Ime" name = "firstName">
+			    <label class = "sivaSlova" for="drzava">Drzava</label>
+			    <input type="text" class="form-control sirinaPoljaForme" id="drzava" placeholder="Drzava" name = "drzava">
 			  </div>
-			  <div id = "nameErr"></div>
+			  <div id = "drzavaErr"></div>
 			  <div class="form-group">
-			    <label class = "sivaSlova" for="prezimeUsera">Prezime</label>
-			    <input type="text" class="form-control sirinaPoljaForme" id="prezimeUsera" placeholder="Prezime" name = "lastName">
+			    <label class = "sivaSlova" for="grad">Grad</label>
+			    <input type="text" class="form-control sirinaPoljaForme" id="grad" placeholder="Grad" name = "grad">
 			  </div>
-			  <div id = "lastNameErr"></div>
+			  <div id = "gradErr"></div>
 			  <div class="form-group">
-			    <label class = "sivaSlova" for="kontaktTelefon">Kontakt telefon</label>
-			    <input type="text" class="form-control sirinaPoljaForme" id="kontaktTelefon" placeholder="Telefon" name = "kontaktTelefon">
+			    <label class = "sivaSlova" for="ulica">Ulica</label>
+			    <input type="text" class="form-control sirinaPoljaForme" id="ulica" placeholder="Ulica" name = "ulica">
 			  </div>
-			  <div id = "telefonErr"></div>
+			  <div id = "ulicaErr"></div>
+			  <div class="form-group">
+			    <label class = "sivaSlova" for="postanskiBroj">Postanski Broj</label>
+			    <input type="text" class="form-control sirinaPoljaForme" id="postanskiBroj" placeholder="Postanski Broj" name = "postanskiBroj">
+			  </div>
+			  <div id = "postanskiBrojErr"></div>
 			  <div class="form-group form-check">
-			  <button type="submit" class="btn btn-primary">Registruj me</button>
+			  <button type="submit" class="btn btn-primary">Registruj firmu</button>
 			</form>
 			</div></div><!-- Ovde je kraj forma diva -->
  		 </div>
@@ -64,6 +70,9 @@
  	
  		 </div>
 	</div>	
+	
+	
+
 </div><!-- Ovde je kraj container-fluida -->
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

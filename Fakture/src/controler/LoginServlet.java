@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bussinesService.RegistracijaLoginMetode;
 import bussinesService.Validacija;
@@ -38,22 +39,22 @@ public class LoginServlet extends HttpServlet {
 		boolean proveriUsera = rlm.daLiPostojiUser(userName);
 		boolean proveriPassword = rlm.daLiJeDobarPassword(userName, sifraPassword);
 		
-		RequestDispatcher dispatcher;
-		
 		if(proveriUsera) {
 			//proveri da li je password dobar
 			if(proveriPassword) {
 				//vrati usera sa datim user nameom i passwordom
 				User user = rlm.vratiUsera(userName);
 					if(user != null) {
+						if(user.isAktivanUser()) {
+						HttpSession session = request.getSession();
+						session.setAttribute("user", user);
 						if(user.getUserName().equals(adminUserName) && user.getPassword().equals(validacija.konvertujPasswordUSifru(adminPassword))) {
-							request.setAttribute("user", user);
-							dispatcher = request.getRequestDispatcher("jsp/adminStrana.jsp");
-							dispatcher.forward(request, response);
+							response.sendRedirect("jsp/adminStrana.jsp");
 						}else {
-							request.setAttribute("user", user);
-							dispatcher = request.getRequestDispatcher("jsp/userStrana.jsp");
-							dispatcher.forward(request, response);
+							response.sendRedirect("jsp/userStrana.jsp");
+						}
+						}else {
+							response.sendRedirect("html/nisteJosAktivirani.html");
 						}
 					}else {
 						response.sendRedirect("html/loginPonovo.html");

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -17,61 +18,16 @@ public class User {
 	private String password;
 	private String imeUsera;
 	private String prezimeUsera;
-	private String imeFirme;
-	private String PIB;
-	private String maticniBrojFirme;
-	@Embedded
-	private Adresa adresa;
-	@Embedded
-	private List <ZiroRacun> listaZiroRacuna = new ArrayList<ZiroRacun>();
+	private String kontaktTelefon;
+	private boolean aktivanUser;
+	@OneToMany
+	private List<Firma> firme = new ArrayList<Firma>();
 	
 	public int getUserId() {
 		return userId;
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
-	}
-	public String getImeUsera() {
-		return imeUsera;
-	}
-	public void setImeUsera(String imeUsera) {
-		this.imeUsera = imeUsera;
-	}
-	public String getPrezimeUsera() {
-		return prezimeUsera;
-	}
-	public void setPrezimeUsera(String prezimeUsera) {
-		this.prezimeUsera = prezimeUsera;
-	}
-	public String getImeFirme() {
-		return imeFirme;
-	}
-	public void setImeFirme(String imeFirme) {
-		this.imeFirme = imeFirme;
-	}
-	public String getPIB() {
-		return PIB;
-	}
-	public void setPIB(String pIB) {
-		PIB = pIB;
-	}
-	public String getMaticniBrojFirme() {
-		return maticniBrojFirme;
-	}
-	public void setMaticniBrojFirme(String maticniBrojFirme) {
-		this.maticniBrojFirme = maticniBrojFirme;
-	}
-	public Adresa getAdresa() {
-		return adresa;
-	}
-	public void setAdresa(Adresa adresa) {
-		this.adresa = adresa;
-	}
-	public List<ZiroRacun> getListaZiroRacuna() {
-		return listaZiroRacuna;
-	}
-	public void setListaZiroRacuna(List<ZiroRacun> listaZiroRacuna) {
-		this.listaZiroRacuna = listaZiroRacuna;
 	}
 	public String getUserName() {
 		return userName;
@@ -85,5 +41,36 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getImeUsera() {
+		return imeUsera;
+	}
+	public void setImeUsera(String imeUsera) {
+		this.imeUsera = imeUsera;
+	}
+	public String getPrezimeUsera() {
+		return prezimeUsera;
+	}
+	public void setPrezimeUsera(String prezimeUsera) {
+		this.prezimeUsera = prezimeUsera;
+	}
+	public List<Firma> getFirme() {
+		return firme;
+	}
+	public void setFirme(List<Firma> firme) {
+		this.firme = firme;
+	}
+	public boolean isAktivanUser() {
+		return aktivanUser;
+	}
+	public void setAktivanUser(boolean aktivanUser) {
+		this.aktivanUser = aktivanUser;
+	}
+	public String getKontaktTelefon() {
+		return kontaktTelefon;
+	}
+	public void setKontaktTelefon(String kontaktTelefon) {
+		this.kontaktTelefon = kontaktTelefon;
+	}
+	
 	
 }

@@ -4,6 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 @Entity
 public class Lager {
@@ -16,6 +20,9 @@ public class Lager {
 	private double izlaznaCena;
 	private int kolicina;
 	private double pdv;
+	@ManyToOne
+	@NotFound(action = NotFoundAction.IGNORE)
+	private Firma firma;
 	
 	public int getLagerId() {
 		return lagerId;
@@ -59,7 +66,11 @@ public class Lager {
 	public void setPdv(double pdv) {
 		this.pdv = pdv;
 	}
-	
-	
+	public Firma getFirma() {
+		return firma;
+	}
+	public void setFirma(Firma firma) {
+		this.firma = firma;
+	}
 
 }
