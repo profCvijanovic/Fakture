@@ -2,7 +2,6 @@ package controler;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import bussinesService.RegistracijaLoginMetode;
 import bussinesService.Validacija;
+import model.Admin;
 import model.User;
 
 /**
@@ -29,9 +29,6 @@ public class LoginServlet extends HttpServlet {
 		String userName = request.getParameter("userName");
 		String password  = request.getParameter("password");
 		
-		String adminUserName = "prof.cvijanovic@gmail.com";
-		String adminPassword = "nenadcv17";
-		
 		Validacija validacija = new Validacija();
 		String sifraPassword = validacija.konvertujPasswordUSifru(password);
 		
@@ -48,7 +45,7 @@ public class LoginServlet extends HttpServlet {
 						if(user.isAktivanUser()) {
 						HttpSession session = request.getSession();
 						session.setAttribute("user", user);
-						if(user.getUserName().equals(adminUserName) && user.getPassword().equals(validacija.konvertujPasswordUSifru(adminPassword))) {
+						if(user.getUserName().equals(Admin.getAdminusername()) && user.getPassword().equals(validacija.konvertujPasswordUSifru(Admin.getAdminpassword()))) {
 							response.sendRedirect("jsp/adminStrana.jsp");
 						}else {
 							response.sendRedirect("jsp/userStrana.jsp");

@@ -1,6 +1,8 @@
 package controler;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,7 +29,9 @@ public class RegistracioniServlet extends HttpServlet {
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String kontaktTelefon = request.getParameter("kontaktTelefon");
-
+		
+		request.setAttribute("email", userName);
+		
 		/*String imeFirme = request.getParameter("imeFirme");
 		String pib = request.getParameter("pib");
 		String maticniBroj = request.getParameter("maticniBroj");
@@ -48,10 +52,12 @@ public class RegistracioniServlet extends HttpServlet {
 		
 		boolean b = rlm.upisiUseraUBazu(userName, sifraPassword, firstName, lastName,kontaktTelefon);
 			if(b) {
-				if(rlm.daLiJeAdmin(userName, sifraPassword)) {
+				if(rlm.daLiJeAdmin(userName)) {
 					rlm.podesiAktivacijuAdmina(rlm.vratiUsera(userName));
+				}else {
+					RequestDispatcher rd = request.getRequestDispatcher("MailDispatcherServlet");
+					rd.forward(request, response);
 				}
-				response.sendRedirect("index.html");
 			}else {
 				response.sendRedirect("html/registracijaPonovoNeuspesanSaveUBazu.html");
 			}		

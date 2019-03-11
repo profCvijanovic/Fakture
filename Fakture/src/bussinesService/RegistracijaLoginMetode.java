@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import model.Admin;
 import model.Firma;
 import model.User;
 
@@ -105,10 +106,7 @@ public class RegistracijaLoginMetode {
 	}
 }
 	
-	public boolean daLiJeAdmin(String userName, String password) {
-		
-		String adminUserName = "prof.cvijanovic@gmail.com";
-		String adminPassword = "nenadcv17";
+	public boolean daLiJeAdmin(String userName) {
 		
 		Session session = sf.openSession();
 		try {
@@ -116,7 +114,7 @@ public class RegistracijaLoginMetode {
 				Query query = session.createQuery("FROM User WHERE userName = :userName");
 				query.setParameter("userName", userName);
 				List <User> users = (List<User>)query.getResultList();
-				if(users.get(0).getUserName().equals(adminUserName) && users.get(0).getPassword().equals(validacija.konvertujPasswordUSifru(adminPassword))) {
+				if(users.get(0).getUserName().equals(Admin.getAdminusername()) && users.get(0).getPassword().equals(validacija.konvertujPasswordUSifru(Admin.getAdminpassword()))) {
 					session.getTransaction().commit();
 					return true;
 				}else {
