@@ -24,11 +24,21 @@
 <title>admin strana</title>
 </head>
 <body>
+	<%
+		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //Sprecavam back da se vrati prilikom logout-a za HTTP 1.1
+		response.setHeader("Pragma","no-cache");//Sprecavam back da se vrati prilikom logout-a za HTTP 1.0
+		response.setHeader("Expires", "0");
+	%>
 	<div class="container-fluid">
 		<div class="row"><!-- div header -->
 			<div class="col-12"><!-- div navbar -->
 				nav bar ovde
 			</div><!-- kraj div navbar -->
+			<div><!-- log out -->
+				<form method = "get" action = "../LogoutServlet">
+					<input type="submit" value = "Logout">
+				</form>
+			</div><!-- kraj log out -->
 		</div><!-- kraj div header -->
 		<div class="row"><!-- Sredina div -->
 			<div class="col-4"><!-- div sredina levo -->
@@ -110,11 +120,12 @@
 			</div><!-- kraj div sredina levo -->
 			<div class="col-8"><!-- div sredina desno -->
 				<%
+		
 					User user = (User) session.getAttribute("user");
 				%>
 				<h1>
 					Dobro dosli admin
-					<%=user.getUserName()%>
+					${user}
 				</h1>
 				<%
 					AdminMetode admin = new AdminMetode();

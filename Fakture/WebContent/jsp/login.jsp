@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +14,12 @@
 		  type = "text/css"
 		  href = "../css/style.css"  
 	/>
+<meta charset="UTF-8">
 <title>login</title>
 </head>
 <body>
-<div class="container-fluid">
+
+	<div class="container-fluid">
 	<h1>Log in</h1>
 	<a href = "../index.html">back</a>
 	  <div class="row">
@@ -60,6 +64,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <!-- Moj JavaScript -->   
 	<script type="text/javascript" src = "../js/mojJs.js"></script>
-</body>
 </body>
 </html>

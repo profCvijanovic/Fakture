@@ -54,6 +54,7 @@ public class RegistracioniServlet extends HttpServlet {
 			if(b) {
 				if(rlm.daLiJeAdmin(userName)) {
 					rlm.podesiAktivacijuAdmina(rlm.vratiUsera(userName));
+					response.sendRedirect("index.html");
 				}else {
 					RequestDispatcher rd = request.getRequestDispatcher("MailDispatcherServlet");
 					rd.forward(request, response);
