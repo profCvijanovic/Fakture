@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="model.User" %>
+<%@ page import="model.Firma" %>
+<%@ page import="java.util.List" %>
+<%@ page import="bussinesService.UserMetode" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,16 +19,29 @@
 		  type = "text/css"
 		  href = "../css/style.css"  
 	/>
-<title>user strana</title>
+<title>firma</title>
 </head>
 <body>
 	<div class="container-fluid">
-		<% User user = (User)session.getAttribute("user");%>
-		<h1>Dobro dosli user <%=user.getUserName()%> </h1>
+		<% User user = (User)session.getAttribute("user");
+		%>
+		<h1>Dodajte firmu</h1>
 		
-		<a href = "dodajFirmu.jsp">dodaj firmu </a>
-		<a href = "dodajKlijenta.jsp">dodaj klijenta </a>
+		<a href = "userStrana.jsp">home</a>
 		
+		<form action = "../DodajFirmuServlet">
+		  <fieldset>
+		    <legend>Dodajte firmu:</legend>
+			    <input type="text" placeholder = "Ime firme" name = "imeFirme"><br>
+			    <input type="text" placeholder = "PIB" name = "pib"><br>
+			    <input type="text" placeholder = "Maticni broj firme" name = "maticniBrojFirme"><br>
+			    <input type="text" placeholder = "Drzava" name = "drzava"><br>
+			    <input type="text" placeholder = "Grad" name = "grad"><br>
+			    <input type="text" placeholder = "Ulica" name = "ulica"><br>
+			    <input type="text" placeholder = "Postanski broj" name = "postanskiBroj"><br>
+			    <input type="submit" value = "Dodaj firmu">
+		  </fieldset>
+		</form>
 		
 		
 		

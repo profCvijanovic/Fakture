@@ -90,6 +90,13 @@ public class Firma {
 	public void setProizvodi(List<Lager> proizvodi) {
 		this.proizvodi = proizvodi;
 	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 	
 	
 }

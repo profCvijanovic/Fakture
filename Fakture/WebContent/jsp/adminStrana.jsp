@@ -42,10 +42,13 @@
 		</div><!-- kraj div header -->
 		<div class="row"><!-- Sredina div -->
 			<div class="col-4"><!-- div sredina levo -->
-				<button type="button" class="btn btn-primary"
-					onclick="prikaziTabelu()">Prikazi/Sakrij sve usere</button><!-- dugme prikazi/sakrij tabelu -->
+				
+				<button type="button" class="btn btn-primary" onclick="prikaziTabelu()">
+					Prikazi/Sakrij sve usere
+				</button><!-- dugme prikazi/sakrij tabelu -->
 				<br> 
 				<br>
+				
 				<p>
 					<button class="btn btn-primary" type="button"
 						data-toggle="collapse" data-target="#collapseExample"
@@ -64,8 +67,7 @@
 								</div>
 								<div class="col-auto my-1">
 									<label for="inlineFormCustomSelect">sta zelite da azurirate</label> 
-										<select class="custom-select mr-sm-2"
-										id="inlineFormCustomSelect" name="izaberi">
+									<select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="izaberi">
 										<option selected>Izaberite...</option>
 										<option value="userName">E-mail</option>
 										<option value="password">Password</option>
@@ -81,9 +83,8 @@
 									</select>
 								</div>
 								<div class="col-auto">
-									<label for="inlineFormInput2">upisite izmenu</label> <input
-										type="text" class="form-control mb-2" id="inlineFormInput2"
-										name="promena">
+									<label for="inlineFormInput2">upisite izmenu</label> 
+									<input type="text" class="form-control mb-2" id="inlineFormInput2" name="promena">
 								</div>
 								<div class="col-auto">
 									<button type="submit" class="btn btn-primary mb-2">Azuriraj</button>
@@ -94,11 +95,13 @@
 				</div><!-- Ovde je kraj collapse-a izmena-->
 				<br> 
 				<br>
+				
 				<p>
 					<button class="btn btn-primary" type="button"
 						data-toggle="collapse" data-target="#collapseExample"
 						aria-expanded="false" aria-controls="collapseExample">
-						Aktiviraj Usera</button>
+						Aktiviraj Usera
+					</button>
 				</p>
 				<div class="collapse" id="collapseExample"><!-- pocetak collapse-a Aktiviraj usera -->
 					<div class="card card-body">
@@ -106,9 +109,7 @@
 							<div class="form-row align-items-center">
 								<div class="col-auto">
 									<label for="inlineFormInput">mail usera</label> 
-									<input
-										type="text" class="form-control mb-2" id="inlineFormInput"
-										name="email">
+									<input type="text" class="form-control mb-2" id="inlineFormInput" name="email">
 								</div>
 								<div class="col-auto">
 									<button type="submit" class="btn btn-primary mb-2">Aktiviraj Usera</button>
@@ -118,6 +119,7 @@
 					</div>
 				</div><!-- Ovde je kraj collapse-a Aktiviraj usera-->
 			</div><!-- kraj div sredina levo -->
+			
 			<div class="col-8"><!-- div sredina desno -->
 				<%
 		
@@ -125,7 +127,7 @@
 				%>
 				<h1>
 					Dobro dosli admin
-					${user}
+					${user.userName}
 				</h1>
 				<%
 					AdminMetode admin = new AdminMetode();
@@ -163,8 +165,10 @@
 					</table>
 				</div>
 				<!-- Ovde je kraj tabela diva -->
-			</div><!-- kraj div sredina desno -->
-		</div><!-- kraj sredina div -->
+			</div>
+			<!-- kraj div sredina desno -->
+		</div>
+		<!-- kraj sredina div -->
 		<div class="row"><!-- div footer -->
 			<div class="col-12"><!-- div futer sadrzaj -->
 				footer
